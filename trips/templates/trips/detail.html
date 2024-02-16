@@ -38,8 +38,9 @@
                 <li>Airline: {{ f.airline }} </li>
                 <li>Airports: {{ f.airports }} </li>
                 <li>Departs: {{ f.arrive_time | date:"h:i A" }} </li>
-            </div>
+            
             {% endfor %}
+        </div>
     </div>
             {% else %}
     <p>No trips are available.</p>
