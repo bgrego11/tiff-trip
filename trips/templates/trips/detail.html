@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trip Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  </head>
+<body>
+<div class="container-fluid text-dark">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3 bg-light rounded-3">
+                    <h1>{{ trip }}</h1>
+                </div>
+                <div class="col-md-9 bg-light rounded-3">
+                    <ul>
+                        <li>state: {{ trip.state }}</li>
+                        <li>arrival date: {{ trip.arrive_dt | date:"M d, Y" }}</li>
+                        <li>departure date: {{ trip.depart_dt | date:"M d, Y" }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 bg-light border rounded-3">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">flights</a>
+        <a href="/trips/flights/add/"><i class="fa-solid fa-plus"></i></a>
+       
+            
+        {% if flights %}
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+            {% for f in flights %}
+            <ul class="border rounded 5">
+            <a href="/trips/flights/{{ f.id }}/change/"> {{ f }} </a>
+                <li>Airline: {{ f.airline }} </li>
+                <li>Airports: {{ f.airports }} </li>
+                <li>Departs: {{ f.arrive_time | date:"h:i A" }} </li>
+            </div>
+            {% endfor %}
+    </div>
+            {% else %}
+    <p>No trips are available.</p>
+{% endif %}
+     
+     <div class="col-md-3 border bg-light rounded-3">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Budgets</a>
+        <a href="/trips/budgets/add/"><i class="fa-solid fa-plus"></i></a>
+        {% if budgets %}
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+            {% for f in budgets %}
+            <ul class="border rounded 5">
+                <a href="/trips/budgets/{{ f.id }}/change/"> {{ f }} </a>
+                <li>category: {{ f.item_type }} </li>
+                <li>Cost: {{ f.cost }} </li>
+                
+            </ul>
+            {% endfor %}
+            </div>
+            {% else %}
+    <p>No trips are available.</p>
+{% endif %}
+     </div>
+     <div class="col-md-3 border bg-light rounded-3">
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">Attractions</a>
+        <a href="/trips/attractions/add/"><i class="fa-solid fa-plus"></i></a>
+        {% if attractions %}
+            <div class="collapse multi-collapse border rounded 5 bg-dark text-light" id="multiCollapseExample3">
+            {% for f in attractions %}
+            <ul class="border rounded 5">
+                <a href="/trips/attractions/{{ f.id }}/change/"> {{ f }} </a>
+                <li>category: {{ f.item_type }} </li>
+                <li>Cost: {{ f.cost }} </li>
+                <li>Confirmed: {{ f.confirmed }} </li>
+            </ul>
+
+            {% endfor %}
+        </div>
+            {% else %}
+    <p>No trips are available.</p>
+{% endif %}
+     </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
