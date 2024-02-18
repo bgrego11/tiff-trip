@@ -1,3 +1,14 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Trip Planner</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+      </head>
+    <body>
+        <div class="container-fluid">
 {% if latest_trip_list %}
     <ul>
     {% for trip in latest_trip_list %}
@@ -7,3 +18,6 @@
 {% else %}
     <p>No trips are available.</p>
 {% endif %}
+</div>
+</body>
+</html>
