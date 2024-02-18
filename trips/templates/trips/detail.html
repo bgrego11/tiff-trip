@@ -3,7 +3,7 @@
 {% block content %}
 <body>
 <div class="container-fluid text-dark">
-    <div class="row text-center">
+    <div class="row text-center mb-5">
        
                 <div>
                     <h1>{{ trip }}</h1>
@@ -19,7 +19,7 @@
         
     </div>
     <div class="row">
-    <div class="col-md-3 bg-light border rounded-3">
+    <div class="col-md-4 bg-light border rounded-3">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">flights</a>
         <a href="/trips/flights/add/"><i class="fa-solid fa-plus"></i></a>
        
@@ -42,7 +42,7 @@
     <p>No trips are available.</p>
 {% endif %}
      
-     <div class="col-md-3 border bg-light rounded-3">
+     <div class="col-md-4 border bg-light rounded-3">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Budgets</a>
         <a href="/trips/budgets/add/"><i class="fa-solid fa-plus"></i></a>
         {% if budgets %}
@@ -60,7 +60,7 @@
     <p>No trips are available.</p>
 {% endif %}
      </div>
-     <div class="col-md-3 border bg-light rounded-3">
+     <div class="col-md-4 border bg-light rounded-3">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">Attractions</a>
         <a href="/trips/attractions/add/"><i class="fa-solid fa-plus"></i></a>
         {% if attractions %}
