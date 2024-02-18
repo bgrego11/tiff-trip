@@ -3,22 +3,22 @@
 {% block content %}
 <body>
 <div class="container-fluid text-dark">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-3 bg-light rounded-3">
+    <div class="row text-center">
+       
+                <div>
                     <h1>{{ trip }}</h1>
                 </div>
-                <div class="col-md-9 bg-light rounded-3">
-                    <ul>
-                        <li>state: {{ trip.state }}</li>
-                        <li>arrival date: {{ trip.arrive_dt | date:"M d, Y" }}</li>
-                        <li>departure date: {{ trip.depart_dt | date:"M d, Y" }}</li>
-                    </ul>
+                <div>
+                 
+                        <div>state: {{ trip.state }}</div>
+                        <div>arrival date: {{ trip.arrive_dt | date:"M d, Y" }}</div>
+                        <div>departure date: {{ trip.depart_dt | date:"M d, Y" }}</div>
+                   
                 </div>
-            </div>
-        </div>
+           
+        
     </div>
+    <div class="row">
     <div class="col-md-3 bg-light border rounded-3">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">flights</a>
         <a href="/trips/flights/add/"><i class="fa-solid fa-plus"></i></a>
@@ -82,6 +82,7 @@
     <p>No trips are available.</p>
 {% endif %}
      </div>
+    </div>
 
 </div>
 
