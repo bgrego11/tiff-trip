@@ -45,6 +45,8 @@
      <div class="col-md-4 border bg-light rounded-3">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Budgets</a>
         <a href="/trips/budgets/add/"><i class="fa-solid fa-plus"></i></a>
+        <p style="float:right" class="card bg-warning rounded-3 ps-1 pe-1""> Cost: {{ b_sum }}</p>
+        <p style="float:right" class="card bg-warning rounded-3 me-3 ps-1 pe-1"># of items: {{ b_cnt }}</p>  
         {% if budgets %}
             <div class="collapse multi-collapse" id="multiCollapseExample1">
             {% for f in budgets %}
@@ -61,8 +63,13 @@
 {% endif %}
      </div>
      <div class="col-md-4 border bg-light rounded-3">
+        <div syle="inline-block">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">Attractions</a>
         <a href="/trips/attractions/add/"><i class="fa-solid fa-plus"></i></a>
+        <p style="float:right" class="card bg-warning rounded-3 ps-1 pe-1""> Cost: {{ a_sum }}</p>
+        <p style="float:right" class="card bg-warning rounded-3 me-3 ps-1 pe-1"> {{ a_cnt }} total attractions</p>  
+        </div>
+       
         {% if attractions %}
             <div class="collapse multi-collapse border rounded 5 bg-dark text-light" id="multiCollapseExample3">
             {% for f in attractions %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.template import loader
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -37,23 +38,37 @@ def detail(request, trip_id):
         trip = Trip.objects.get(pk=trip_id)
         try:
             budgets = Budget.objects.filter(trip__pk=trip_id)
+            b_cnt = Budget.objects.filter(trip__pk=trip_id).count()
+            b_sum = budgets.aggregate(Sum("cost"))["cost__sum"]
         except:
             budgets = None
+            b_cnt = None
+            b_sum = None
         try:
             flights = Flight.objects.filter(trip__pk=trip_id)
+            
         except:
             flights = None
         try:
             attractions = Attraction.objects.filter(trip__pk=trip_id)
+            a_cnt = Attraction.objects.filter(trip__pk=trip_id).count()
+            a_sum = attractions.aggregate(Sum("cost"))["cost__sum"]
+            
         except:
             attractions = None
+            a_cnt = None
+            a_sum = None
     except:
         raise Http404("trip not found")
     context = {
         "trip": trip,
         "budgets": budgets,
         "flights": flights,
-        "attractions": attractions
+        "attractions": attractions,
+        "a_cnt": a_cnt,
+        "a_sum": a_sum,
+        "b_cnt": b_cnt,
+        "b_sum": b_sum,
     }
     return render(request, "trips/detail.html",context)
 
