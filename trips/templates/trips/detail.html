@@ -10,9 +10,9 @@
                 </div>
                 <div>
                  
-                        <div>State: {{ trip.state }}</div>
-                        <div>Arrival date: {{ trip.arrive_dt | date:"M d, Y" }}</div>
-                        <div>Departure date: {{ trip.depart_dt | date:"M d, Y" }}</div>
+                        <div>state: {{ trip.state }}</div>
+                        <div>arrival date: {{ trip.arrive_dt | date:"M d, Y" }}</div>
+                        <div>departure date: {{ trip.depart_dt | date:"M d, Y" }}</div>
                    
                 </div>
            
@@ -20,7 +20,7 @@
     </div>
     <div class="row">
     <div class="col-md-4 bg-light border rounded-3">
-        <a class="btn btn-primary bg-gradient" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Flights</a>
+        <a class="btn btn-primary bg-gradient" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">flights</a>
         <a href="/trips/flights/add/"><i class="fa-solid fa-plus"></i></a>
        
             
@@ -43,7 +43,7 @@
 {% endif %}
      
      <div class="col-md-4 border bg-light rounded-3">
-        <a class="btn btn-primary bg-gradient" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Budgets</a>
+        <a class="btn btn-primary bg-gradient text-light" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Budgets</a>
         <a href="/trips/budgets/add/"><i class="fa-solid fa-plus"></i></a>
         <p style="float:right" class="card bg-warning rounded-3 ps-1 pe-1""> Cost: {{ b_sum }}</p>
         <p style="float:right" class="card bg-warning rounded-3 me-3 ps-1 pe-1"># of items: {{ b_cnt }}</p>  
@@ -71,12 +71,13 @@
         </div>
        
         {% if attractions %}
-            <div class="collapse multi-collapse border rounded 5 bg-dark text-light" id="multiCollapseExample3">
+            <div class="collapse multi-collapse border rounded 5 text-light" id="multiCollapseExample3">
             {% for f in attractions %}
             <ul class="border rounded 5">
                 <a href="/trips/attractions/{{ f.id }}/change/"> {{ f }} </a>
-                <li>category: {{ f.item_type }} </li>
+                <li>category: {{ f.get_item_type_display }} </li>
                 <li>Cost: {{ f.cost }} </li>
+                <li><a href="{{ f.url }}"> {{ f.url }}</a> 
                 <li>Confirmed: {{ f.confirmed }} </li>
                 <li>Notes: {{ f.notes }} </li>
                 

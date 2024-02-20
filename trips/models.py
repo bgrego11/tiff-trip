@@ -43,6 +43,7 @@ class Attraction(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     address = models.CharField(max_length=200, blank=True, null=True)
+    url = models.CharField(max_length=200, blank=True, null=True)
     item_type = models.CharField(max_length=200, choices=budget_choices, default=budget_choices[0])
     type = models.CharField(max_length=200)
     notes = models.CharField(max_length=200, blank=True, null=True)
